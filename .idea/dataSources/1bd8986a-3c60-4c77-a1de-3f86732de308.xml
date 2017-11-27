@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="MySQL - student@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="2.6">
+    <schema id="1" name="student">
+      <visible>1</visible>
+    </schema>
+    <schema id="2" name="bookstore"/>
+    <schema id="3" name="exam"/>
+    <schema id="4" name="hibernate"/>
+    <schema id="5" name="hibernate2"/>
+    <schema id="6" name="information_schema"/>
+    <schema id="7" name="java0703"/>
+    <schema id="8" name="javademo"/>
+    <schema id="9" name="mydb1"/>
+    <schema id="10" name="mydb3"/>
+    <schema id="11" name="mydb4"/>
+    <schema id="12" name="mysql"/>
+    <schema id="13" name="performance_schema"/>
+    <schema id="14" name="sshdemo"/>
+    <schema id="15" name="ssm"/>
+    <schema id="16" name="ssm_netaccount"/>
+    <schema id="17" name="sys"/>
+    <schema id="18" name="workdb1"/>
+    <table id="19" parent="1" name="student"/>
+    <table id="20" parent="1" name="user"/>
+    <column id="21" parent="19" name="sid">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="22" parent="19" name="name">
+      <data-type>varchar(20)|0</data-type>
+    </column>
+    <column id="23" parent="19" name="age">
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="24" parent="19" name="gender">
+      <data-type>varchar(20)|0</data-type>
+    </column>
+    <key id="25" parent="19" name="PRIMARY">
+      <columns>sid</columns>
+      <primary>1</primary>
+    </key>
+    <column id="26" parent="20" name="uid">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="27" parent="20" name="uname">
+      <data-type>varchar(20)|0</data-type>
+    </column>
+    <column id="28" parent="20" name="pwd">
+      <data-type>varchar(20)|0</data-type>
+    </column>
+    <key id="29" parent="20" name="PRIMARY">
+      <columns>uid</columns>
+      <primary>1</primary>
+    </key>
+  </database-model>
+</dataSource>

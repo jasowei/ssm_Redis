@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+
+    <!--5.1. 引入db属性文件-->
+    <context:property-placeholder location="classpath:db.properties"/>
+
+    <!--5.2. 配置数据源-->
+    <bean class="com.mchange.v2.c3p0.ComboPooledDataSource"
+          id="dataSource">
+        <property name="driverClass" value="${driver}"/>
+        <property name="jdbcUrl" value="${url}"/>
+        <property name="user" value="${username}"/>
+        <property name="password" value="${password}"/>
+    </bean>
+
+    <!--6. 配置SessionFactory对象-->
+    <bean class="org.mybatis.spring.SqlSessionFactoryBean"
+          id="sessionFactory">
+        <property name="configLocation" value="classpath:mybatis-config.xml"/>
+        <property name="dataSource" ref="dataSource"/>
+        <property name="mapperLocations" value="classpath*:com/alibaba/mapper/*.xml"/>
+    </bean>
+
+    <!--7. 配置mybatis中的mapper接口自动扫描-->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <!--mapper接口代理对象所在的包-->
+        <property name="basePackage" value="com.alibaba.mapper"/>
+        <!--定义sessionFactory, 引用上面配置的工厂对象-->
+        <property name="sqlSessionFactoryBeanName" value="sessionFactory"/>
+    </bean>
+
+
+
+
+
+
+
+
+</beans>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/mvc
+       http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+
+
+    <!--1. 加入注解扫描驱动-->
+    <mvc:annotation-driven/>
+
+    <!--2. 配置注解扫描的基础包-->
+    <context:component-scan base-package="com.alibaba"/>
+
+    <!--3. springmvc第一条 : 将静态资源的处理经由Spring MVC框架交由Web应用服务器处理-->
+    <mvc:default-servlet-handler/>
+
+    <!--4. springmvc第二条 : 配置视图解析规则-->
+    <bean id="jspViewResovler"
+          class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <!--配置视图解析的前缀-->
+        <property name="prefix" value="/WEB-INF/"/>
+        <!--配置视图解析的后缀-->
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+
+
+</beans>

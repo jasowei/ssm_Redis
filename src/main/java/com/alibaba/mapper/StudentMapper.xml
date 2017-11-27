@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.alibaba.mapper.StudentMapper">
+
+
+    <!--mybatis自带的二级缓存-->
+    <!--<cache/>-->
+    <cache type="com.alibaba.cache.RedisCache"/>
+
+    <!--不做缓存-->
+    <select id="findAllStudent" resultType="com.alibaba.bean.Student"
+    useCache="false">
+        SELECT * FROM student
+    </select>
+
+</mapper>
